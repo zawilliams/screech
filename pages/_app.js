@@ -1,6 +1,7 @@
 import 'tailwindcss/tailwind.css'
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
+import { truncateHash } from '../common/utils';
 
 const App = ({ Component, pageProps }) => {
   const [currentAccount, setCurrentAccount] = useState("");
@@ -92,7 +93,7 @@ const App = ({ Component, pageProps }) => {
             ?
               (
                 <div className="text-rose-300">
-                  {currentAccount}
+                  {truncateHash(currentAccount)}
                 </div>
               )
             :
