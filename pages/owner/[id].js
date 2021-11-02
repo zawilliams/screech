@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import TwitterABI from '../abi/Twitter.json';
+import TwitterABI from '../../abi/Twitter.json';
 import { format } from 'timeago.js';
 import { truncateHash } from '../common/utils';
 
@@ -86,7 +86,7 @@ export default function User() {
             ?
               tweets.map((tweet) => (
                 <div className="" key="{tweet.timestamp}">
-                  <div className="text-sm text-rose-300"><a href="#" className="underline hover:no-underline">{truncateHash(tweet.owner)}</a> · {format(tweet.timestamp.toNumber() * 1000)}</div>
+                  <div className="text-sm text-rose-300"><a href="/{tweet.owner}" className="underline hover:no-underline">{truncateHash(tweet.owner)}</a> · {format(tweet.timestamp.toNumber() * 1000)}</div>
                   <div className="my-2 text-base tracking-widest uppercase text-rose-500">{tweet.text}</div>
                   <a href="#" onClick={(e) => { e.preventDefault(); likeTweet(tweet.id.toNumber()); }} className="inline-flex items-center text-rose-400 hover:text-rose-500">
                     <svg className="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24">
